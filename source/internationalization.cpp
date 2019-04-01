@@ -373,6 +373,11 @@ namespace nana
 		internationalization_parts::load(file, true);
 	}
 
+	void internationalization::load(const std::wstring& file)
+	{
+		internationalization_parts::load(file, false);
+	}
+
 	void internationalization::load_utf8(const std::wstring& file)
 	{
 		internationalization_parts::load(file, true);
