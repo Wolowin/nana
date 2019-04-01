@@ -45,6 +45,9 @@ namespace nana
 			{
 			}
 
+			tokenizer(const std::wstring& file, bool utf8) : tokenizer(std::ifstream(file.data(), std::ios::binary), utf8)
+			{
+			}
 			tokenizer(std::ifstream& inputFileStream, bool utf8)
 			{
 				if (inputFileStream)
@@ -289,6 +292,12 @@ namespace nana
 			load_impl(tknizer, utf8);
 		}
 
+		void load(const std::wstring& file, bool utf8)
+		{
+			tokenizer tknizer(file, utf8);
+			load_impl(tknizer, utf8);
+		}
+
 		void load(std::ifstream& inputFileStream, bool utf8)
 		{
 			tokenizer tknizer(inputFileStream, utf8);
@@ -360,6 +369,11 @@ namespace nana
 	}
 
 	void internationalization::load_utf8(const std::string& file)
+	{
+		internationalization_parts::load(file, true);
+	}
+
+	void internationalization::load_utf8(const std::wstring& file)
 	{
 		internationalization_parts::load(file, true);
 	}

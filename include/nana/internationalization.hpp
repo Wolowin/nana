@@ -30,6 +30,9 @@ namespace nana
 		void load(const std::string& file);
 		void load_utf8(const std::string& file);
 
+		void load(const std::wstring& file);
+		void load_utf8(const std::wstring& file);
+
 		void load(std::ifstream& inputFileStream);
 		void load_utf8(std::ifstream& inputFileStream);
 
