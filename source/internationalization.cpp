@@ -298,12 +298,6 @@ namespace nana
 			load_impl(tknizer, utf8);
 		}
 
-		void load(std::ifstream& inputFileStream, bool utf8)
-		{
-			tokenizer tknizer(inputFileStream, utf8);
-			load_impl(tknizer, utf8);
-		}
-
 		struct eval_window
 		{
 			nana::event_handle destroy{nullptr};
@@ -381,16 +375,6 @@ namespace nana
 	void internationalization::load_utf8(const std::wstring& file)
 	{
 		internationalization_parts::load(file, true);
-	}
-
-	void internationalization::load(std::ifstream& inputFileStream)
-	{
-		internationalization_parts::load(inputFileStream, false);
-	}
-
-	void internationalization::load_utf8(std::ifstream& inputFileStream)
-	{
-		internationalization_parts::load(inputFileStream, false);
 	}
 
 	std::string internationalization::get(std::string msgid) const
