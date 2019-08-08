@@ -543,7 +543,22 @@ namespace nana
 							data * data_ptr = i->data_ptr;
 
 							const int w = static_cast<int>(rs.allowed_width) - rs.pos.x;
-							nana::size sz = data_ptr->size();
+
+							nana::size sz;
+							std::wstring str;
+
+							if (text_range.second == data_ptr->text().length())
+							{
+								str = data_ptr->text();
+								sz = data_ptr->size();
+							}
+							else
+							{
+								str = data_ptr->text().substr(text_range.first, text_range.second);
+								sz = graph.text_extent_size(str);
+							}
+
+
 							if ((static_cast<int>(sz.width) > w) && (rs.pos.x != px.x_base))
 							{
 								//Change a new line
@@ -556,20 +571,10 @@ namespace nana
 
 							_m_change_font(graph, fblock_ptr);
 
-							if (text_range.second == data_ptr->text().length())
-							{
-								graph.string({ rs.pos.x, y }, data_ptr->text(), _m_fgcolor(fblock_ptr));
-							}
-							else
-							{
-								auto str = data_ptr->text().substr(text_range.first, text_range.second);
-								sz = graph.text_extent_size(str);
-
-								graph.string({ rs.pos.x, y }, str, _m_fgcolor(fblock_ptr));
-							}
-
+							graph.string({ rs.pos.x, y }, data_ptr->text(), _m_fgcolor(fblock_ptr));
 
 							_m_insert_if_traceable(rs.pos.x, y, sz, fblock_ptr);
+
 							rs.pos.x += static_cast<int>(sz.width);
 
 							if(text_range.second < len)
