@@ -571,7 +571,7 @@ namespace nana
 
 							_m_change_font(graph, fblock_ptr);
 
-							graph.string({ rs.pos.x, y }, data_ptr->text(), _m_fgcolor(fblock_ptr));
+							graph.string({ rs.pos.x, y }, str, _m_fgcolor(fblock_ptr));
 
 							_m_insert_if_traceable(rs.pos.x, y, sz, fblock_ptr);
 
