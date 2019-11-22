@@ -184,7 +184,6 @@ namespace detail
 
 	//class bedrock defines a static object itself to implement a static singleton
 	//here is the definition of this object
-	bedrock bedrock::bedrock_object;
 
 	static LRESULT WINAPI Bedrock_WIN32_WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -306,6 +305,8 @@ namespace detail
 
 	bedrock& bedrock::instance()
 	{
+		static bedrock bedrock_object;
+
 		return bedrock_object;
 	}
 

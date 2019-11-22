@@ -97,8 +97,6 @@ namespace detail
 		void _m_emit_core(event_code, core_window_t*, bool draw_only, const event_arg&, const bool bForce__EmitInternal);
 		void _m_event_filter(event_code, core_window_t*, thread_context*);
 	private:
-		static bedrock bedrock_object;
-
 		struct pi_data;
 		pi_data*	pi_data_;
 		struct private_impl;
