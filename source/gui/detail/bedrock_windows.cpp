@@ -305,9 +305,9 @@ namespace detail
 
 	bedrock& bedrock::instance()
 	{
-		static bedrock bedrock_object;
+		static bedrock* bedrock_object = new bedrock;
 
-		return bedrock_object;
+		return *bedrock_object;
 	}
 
 	void bedrock::flush_surface(core_window_t* wd, bool forced, const rectangle* update_area)
