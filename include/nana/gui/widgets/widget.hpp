@@ -109,6 +109,20 @@ namespace nana
 		void bgcolor(const nana::color&);
 		nana::color bgcolor() const;
 
+		void setBordersColors(nana::color color);
+
+		void setLeftBorderColor(nana::color color);
+		nana::color getLeftBorderColor();
+
+		void setRightBorderColor(nana::color color);
+		nana::color getRightBorderColor();
+
+		void setTopBorderColor(nana::color color);
+		nana::color getTopBorderColor();
+
+		void setBottomBorderColor(nana::color color);
+		nana::color getBottomBorderColor();
+
 		general_events& events() const;
 
 		void umake_event(event_handle eh) const;              ///< Deletes an event callback by a handle.
@@ -125,6 +139,10 @@ namespace nana
 	private:
 		virtual void _m_notify_destroy() = 0;
 
+		nana::color leftBorderColor{ static_cast<color_rgb>(0x7f7f7f) };
+		nana::color rightBorderColor{ static_cast<color_rgb>(0x707070) };
+		nana::color topBorderColor{ static_cast<color_rgb>(0x7f7f7f) };
+		nana::color bottomBorderColor{ static_cast<color_rgb>(0x707070) };
 	protected:
 		//protected members, a derived class must call this implementation if it overrides an implementation
 		virtual void _m_complete_creation();

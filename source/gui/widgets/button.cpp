@@ -308,16 +308,20 @@ namespace nana{	namespace drawerbase
 		{
 			nana::rectangle r(graph.size());
 
-			::nana::color lt(static_cast<color_rgb>(0x7f7f7f)), rb(static_cast<color_rgb>(0x707070));
-			graph.frame_rectangle(r, lt, lt, rb, rb);
+			graph.frame_rectangle(
+				r,
+				wdg_->getLeftBorderColor(),
+				wdg_->getTopBorderColor(),
+				wdg_->getRightBorderColor(),
+				wdg_->getBottomBorderColor());
 
-			graph.palette(false, colors::button_face);
-
+			nana::color cornerOutterColor = wdg_->getTopBorderColor().blend(colors::white, 0.70);
+			graph.palette(false, cornerOutterColor);
 			paint::draw draw(graph);
 			draw.corner(r, 1);
 
-			graph.palette(false, static_cast<color_rgb>(0x919191));
-
+			nana::color cornerInnerColor = wdg_->getTopBorderColor().blend(colors::white, 0.40);
+			graph.palette(false, cornerInnerColor);
 			draw.corner(r.pare_off(1), 1);
 
 			if (element_state::pressed == attr_.e_state)

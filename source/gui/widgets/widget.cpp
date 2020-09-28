@@ -233,6 +233,50 @@ namespace nana
 			return _m_bgcolor();
 		}
 
+		void widget::setBordersColors(nana::color color)
+		{
+			leftBorderColor = color;
+			rightBorderColor = color;
+			topBorderColor = color;
+			bottomBorderColor = color;
+		}
+
+		void widget::setLeftBorderColor(nana::color color)
+		{
+			leftBorderColor = color;
+		}
+		nana::color widget::getLeftBorderColor()
+		{
+			return leftBorderColor;
+		}
+
+		void widget::setRightBorderColor(nana::color color)
+		{
+			rightBorderColor = color;
+		}
+		nana::color widget::getRightBorderColor()
+		{
+			return rightBorderColor;
+		}
+
+		void widget::setTopBorderColor(nana::color color)
+		{
+			topBorderColor = color;
+		}
+		nana::color widget::getTopBorderColor()
+		{
+			return topBorderColor;
+		}
+
+		void widget::setBottomBorderColor(nana::color color)
+		{
+			bottomBorderColor = color;
+		}
+		nana::color widget::getBottomBorderColor()
+		{
+			return bottomBorderColor;
+		}
+
 		general_events& widget::events() const
 		{
 			return _m_get_general_events();
