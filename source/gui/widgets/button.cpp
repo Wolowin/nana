@@ -290,6 +290,18 @@ namespace nana{	namespace drawerbase
 
 		void trigger::_m_draw_background(graph_reference graph)
 		{
+			if (wdg_->buttonColorGradual())
+			{
+				_m_draw_gradual_background(graph);
+			}
+			else
+			{
+				_m_draw_solid_background(graph);
+			}
+		}
+
+		void trigger::_m_draw_gradual_background(graph_reference graph)
+		{
 			nana::rectangle r(graph.size());
 			r.pare_off(1);
 
@@ -302,6 +314,21 @@ namespace nana{	namespace drawerbase
 				std::swap(from, to);
 			}
 			graph.gradual_rectangle(r, from, to, true);
+		}
+
+		void trigger::_m_draw_solid_background(graph_reference graph)
+		{
+			nana::rectangle r(graph.size());
+			r.pare_off(1);
+
+			auto color = attr_.bgcolor;
+			if (element_state::pressed == attr_.e_state)
+			{
+				r.x = r.y = 2;
+				color = color.blend(colors::black, 0.3);
+			}
+
+			graph.rectangle(true, color);
 		}
 
 		void trigger::_m_draw_border(graph_reference graph)

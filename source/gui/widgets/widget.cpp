@@ -233,6 +233,16 @@ namespace nana
 			return _m_bgcolor();
 		}
 
+		void widget::buttonColorGradual(bool gradual)
+		{
+			_m_buttonColorGradual = gradual;
+		}
+
+		bool widget::buttonColorGradual()
+		{
+			return _m_buttonColorGradual;
+		}
+
 		void widget::setBordersColors(nana::color color)
 		{
 			leftBorderColor = color;

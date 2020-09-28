@@ -108,6 +108,8 @@ namespace nana
 		nana::color fgcolor() const;
 		void bgcolor(const nana::color&);
 		nana::color bgcolor() const;
+		void buttonColorGradual(bool gradual);
+		bool buttonColorGradual();
 
 		void setBordersColors(nana::color color);
 
@@ -143,6 +145,8 @@ namespace nana
 		nana::color rightBorderColor{ static_cast<color_rgb>(0x707070) };
 		nana::color topBorderColor{ static_cast<color_rgb>(0x7f7f7f) };
 		nana::color bottomBorderColor{ static_cast<color_rgb>(0x707070) };
+		bool _m_buttonColorGradual{ true };
+
 	protected:
 		//protected members, a derived class must call this implementation if it overrides an implementation
 		virtual void _m_complete_creation();

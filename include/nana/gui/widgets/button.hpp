@@ -51,6 +51,8 @@ namespace nana{
 			private:
 				void _m_draw_title(graph_reference, bool enabled);
 				void _m_draw_background(graph_reference);
+				void _m_draw_gradual_background(graph_reference);
+				void _m_draw_solid_background(graph_reference);
 				void _m_draw_border(graph_reference);
 				void _m_press(graph_reference, bool);
 			private:
